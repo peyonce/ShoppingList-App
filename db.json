@@ -23,24 +23,22 @@
       "name": "Nthabiseng Phiri",
       "email": "nthabynthabie4@gmail.com",
       "password": "Khaya@23"
+    },
+    {
+      "id": "50cf",
+      "name": "Nthabiseng Phiri",
+      "email": "nthabynthabie0@gmail.com",
+      "password": "Khaya@23"
     }
   ],
   "shoppingLists": [
     {
-      "id": "2e1d",
-      "name": "drink"
-    },
-    {
-      "id": "1a47",
-      "name": "biscuit"
-    },
-    {
-      "id": "5849",
-      "name": "meal"
-    },
-    {
       "id": "0e90",
       "name": "macaron"
+    },
+    {
+      "id": "fb26",
+      "name": "cake"
     }
   ]
 }

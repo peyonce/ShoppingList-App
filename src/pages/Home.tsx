@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Home.module.css";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import styles from "./Home.module.css";
 import type { RootState, AppDispatch } from "../redux/store";
 import { setItems, addItem, updateItem, deleteItem } from "../redux/shoppingListSlice";
+import { logout } from "../redux/authSlice";
 
 interface ShoppingItem {
   id: number;
@@ -13,6 +15,7 @@ const API_URL = "http://localhost:5000/shoppingLists";
 
 const HomePage: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
   const items = useSelector((state: RootState) => state.shoppingList.items);
   const [newItem, setNewItem] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
@@ -68,11 +71,28 @@ const HomePage: React.FC = () => {
       .catch((err) => console.error(err));
   };
 
+
+  const goToProfile = () => navigate("/profile");
+
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
+
   return (
     <div className={styles.homeContainer}>
       <header className={styles.header}>
         <h1>My Shopping Lists</h1>
         <p>Manage, track, and organize your shopping in one place.</p>
+        <div className={styles.navButtons}>
+          <button className={styles.btn} onClick={goToProfile}>
+            Profile
+          </button>
+          <button className={styles.btn} onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </header>
 
       <div className={styles.inputGroup}>
@@ -82,7 +102,9 @@ const HomePage: React.FC = () => {
           onChange={(e) => setNewItem(e.target.value)}
           placeholder="Add new item..."
         />
-        <button onClick={handleAdd} className={styles.btn}>Add</button>
+        <button onClick={handleAdd} className={styles.btn}>
+          Add
+        </button>
       </div>
 
       <ul className={styles.list}>
@@ -95,8 +117,12 @@ const HomePage: React.FC = () => {
                   value={editValue}
                   onChange={(e) => setEditValue(e.target.value)}
                 />
-                <button onClick={() => handleUpdate(item.id)} className={styles.btn}>Save</button>
-                <button onClick={() => setEditingId(null)} className={styles.btn}>Cancel</button>
+                <button onClick={() => handleUpdate(item.id)} className={styles.btn}>
+                  Save
+                </button>
+                <button onClick={() => setEditingId(null)} className={styles.btn}>
+                  Cancel
+                </button>
               </>
             ) : (
               <>
@@ -108,9 +134,11 @@ const HomePage: React.FC = () => {
                   }}
                   className={styles.btn}
                 >
-                  save
+                  edit
                 </button>
-                <button onClick={() => handleDelete(item.id)} className={styles.btn}>delete</button>
+                <button onClick={() => handleDelete(item.id)} className={styles.btn}>
+                  delete
+                </button>
               </>
             )}
           </li>

@@ -1,124 +1,124 @@
-.homeContainer {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #121212, #1e1e1e);
-    color: #f5f5f5;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-}
+ .homeContainer {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 2rem;
+     min-height: 100vh;
+     background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+     color: #fff;
+ }
 
-.header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
+ .header {
+     text-align: center;
+     margin-bottom: 2rem;
+ }
 
-.header h1 {
-    font-size: 2.5rem;
-    color: #ff9800;
-    margin-bottom: 0.5rem;
-}
+ .header h1 {
+     color: #ff9800;
+     text-shadow: 0 0 10px #ff9800;
+ }
 
-.header p {
-    font-size: 1.2rem;
-    color: #cccccc;
-}
+ .header p {
+     color: #ccc;
+     margin-top: 0.5rem;
+ }
 
-/* 🔹 Input + Button group */
-.inputGroup {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    width: 100%;
-    max-width: 500px;
-}
+ .navButtons {
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+     margin-top: 1rem;
+ }
 
-.inputGroup input {
-    flex: 1;
-    padding: 0.7rem;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    background: #2a2a2a;
-    color: #fff;
-    font-size: 1rem;
-}
+ .btn {
+     padding: 0.6rem 1rem;
+     font-size: 1rem;
+     border: 2px solid #ff9800;
+     border-radius: 12px;
+     background-color: #1f1f1f;
+     color: #fff;
+     cursor: pointer;
+     transition: transform 0.2s, box-shadow 0.2s;
+ }
 
-.inputGroup button {
-    background: #4cafef;
-    color: white;
-    border: none;
-    padding: 0.7rem 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-}
+ .btn:hover {
+     transform: scale(1.05);
+     box-shadow: 0 0 15px #ff9800, 0 0 30px #ff9800 inset;
+ }
 
-.inputGroup button:hover {
-    background: #1976d2;
-    transform: scale(1.05);
-}
+ .inputGroup {
+     display: flex;
+     gap: 0.5rem;
+     margin-bottom: 2rem;
+ }
 
-/* 🔹 Shopping list styles */
-.list {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    max-width: 500px;
-}
+ .inputGroup input {
+     padding: 0.8rem;
+     border-radius: 12px;
+     border: none;
+     background-color: #2c2c2c;
+     color: #fff;
+     font-size: 1rem;
+     flex: 1;
+ }
 
-.list li {
-    display: flex;
-    align-items: center;
-    background: #1f1f1f;
-    margin-bottom: 0.5rem;
-    padding: 0.7rem;
-    border-radius: 8px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
+ .list {
+     list-style: none;
+     padding: 0;
+     width: 100%;
+     max-width: 500px;
+ }
 
-.list li:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-}
+ .list li {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     background: rgba(25, 25, 25, 0.9);
+     backdrop-filter: blur(10px);
+     border-radius: 12px;
+     padding: 0.6rem 1rem;
+     margin-bottom: 0.8rem;
+ }
 
-.list li input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-}
+ .list li input {
+     flex: 1;
+     margin-right: 0.5rem;
+     padding: 0.5rem;
+     border-radius: 8px;
+     border: none;
+     background-color: #2c2c2c;
+     color: #fff;
+ }
 
-.list li button {
-    margin-left: 0.5rem;
-    background: red;
-    color: white;
-    border: none;
-    padding: 0.5rem 0.8rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-}
+ .list li span {
+     flex: 1;
+ }
 
-.list li button:hover {
-    background: darkred;
-    transform: scale(1.1);
-}
+ .list li button {
+     margin-left: 0.5rem;
+ }
 
-/* 🔹 Responsive */
-@media (max-width: 600px) {
-    .header h1 {
-        font-size: 2rem;
-    }
+ @media (max-width: 480px) {
+     .header h1 {
+         font-size: 1.5rem;
+     }
 
-    .inputGroup {
-        flex-direction: column;
-    }
+     .inputGroup input,
+     .btn {
+         font-size: 0.9rem;
+     }
 
-    .inputGroup button {
-        width: 100%;
-    }
-}
+     .list li {
+         flex-direction: column;
+         align-items: flex-start;
+     }
+
+     .list li button {
+         margin: 0.3rem 0 0 0;
+     }
+
+     .navButtons {
+         flex-direction: column;
+         gap: 0.5rem;
+     }
+ }

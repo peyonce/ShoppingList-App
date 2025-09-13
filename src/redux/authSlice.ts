@@ -4,7 +4,9 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 interface User {
     id: number;
     username: string;
+    name?: string;
     email: string;
+    password: string;
 }
 
 interface AuthState {
@@ -38,8 +40,14 @@ const authSlice = createSlice({
                 state.isAuthenticated = true;
             }
         },
+
+        setUser: (state, action: PayloadAction<User>) => {
+            state.user = action.payload;
+            state.isAuthenticated = true;
+            localStorage.setItem("user", JSON.stringify(action.payload));
+        }
     },
 });
 
-export const { login, logout, loadUser } = authSlice.actions;
+export const { login, logout, loadUser, setUser } = authSlice.actions;
 export default authSlice.reducer;

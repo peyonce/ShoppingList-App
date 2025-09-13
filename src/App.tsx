@@ -4,7 +4,9 @@ import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import HomePage from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Profilepage from "./pages/Profile"
 import PrivateRoute from "./component/PrivateRoute";
+import ProfilePage from "./pages/Profile";
 
 export default function App() {
   return (
@@ -14,12 +16,22 @@ export default function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
-        s
+
+
         <Route
           path="/home"
           element={
             <PrivateRoute>
               <HomePage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <ProfilePage />
             </PrivateRoute>
           }
         />
