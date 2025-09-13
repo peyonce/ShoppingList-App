@@ -3,8 +3,7 @@ import LandingPage from "./component/Landing";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import HomePage from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Profilepage from "./pages/Profile"
+import NotFound from "./pages/NotFound"
 import PrivateRoute from "./component/PrivateRoute";
 import ProfilePage from "./pages/Profile";
 
