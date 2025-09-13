@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": "ebda",
+      "name": "Nthabiseng Phiri",
+      "email": "nthabynthabie1@gmail.com",
+      "password": "Khaya@23"
+    },
+    {
+      "id": "22d5",
+      "name": "Nthabiseng Phiri",
+      "email": "nthabynthabie2@gmail.com",
+      "password": "Khaya@23"
+    },
+    {
+      "id": "6490",
+      "name": "Nthabiseng Phiri",
+      "email": "nthabynthabie3@gmail.com",
+      "password": "Khaya@23"
+    },
+    {
+      "id": "042a",
+      "name": "Nthabiseng Phiri",
+      "email": "nthabynthabie4@gmail.com",
+      "password": "Khaya@23"
+    }
+  ],
+  "shoppingLists": [
+    {
+      "id": "2e1d",
+      "name": "drink"
+    },
+    {
+      "id": "1a47",
+      "name": "biscuit"
+    },
+    {
+      "id": "5849",
+      "name": "meal"
+    },
+    {
+      "id": "0e90",
+      "name": "macaron"
+    }
+  ]
+}
