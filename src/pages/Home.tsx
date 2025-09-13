@@ -134,7 +134,7 @@ const HomePage: React.FC = () => {
                   }}
                   className={styles.btn}
                 >
-                  edit
+                  update
                 </button>
                 <button onClick={() => handleDelete(item.id)} className={styles.btn}>
                   delete
