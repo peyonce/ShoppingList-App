@@ -80,19 +80,25 @@
     },
     {
       "id": "54f8",
-      "name": "wen wen",
+      "name": "wendy wen",
       "email": "wenwen@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "54e8",
+      "name": "fikile mduna",
+      "email": "fikilemduna@gmail.com",
+      "password": "1212"
     }
   ],
   "shoppingLists": [
     {
-      "id": "de9e",
-      "name": "sugar beans"
+      "id": "fd2b",
+      "name": "spinach"
     },
     {
-      "id": "4098",
-      "name": "cheese bun"
+      "id": "b1cf",
+      "name": "roll on"
     }
   ]
 }
