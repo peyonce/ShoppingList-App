@@ -41,16 +41,58 @@
       "name": "Nthabiseng Phiri",
       "email": "khayamtolo@gmail.com",
       "password": "lat123"
+    },
+    {
+      "id": "9f99",
+      "name": "lebo loo",
+      "email": "loo@gmai.com",
+      "password": "234"
+    },
+    {
+      "id": "ea6f",
+      "name": "fatima mohole",
+      "email": "fatimohole@gmail.com",
+      "password": "567"
+    },
+    {
+      "id": "7e88",
+      "name": "Moi",
+      "email": "moi@gmail.com",
+      "password": "789"
+    },
+    {
+      "id": "34b4",
+      "name": "nono polo",
+      "email": "nonopolo@gmail.com",
+      "password": "456"
+    },
+    {
+      "id": "6ad5",
+      "name": "lerato musa",
+      "email": "leratomusa@gmail.com",
+      "password": "135"
+    },
+    {
+      "id": "6a4b",
+      "name": "pill pen",
+      "email": "pillpen@gmail.com",
+      "password": "567"
+    },
+    {
+      "id": "54f8",
+      "name": "wen wen",
+      "email": "wenwen@gmail.com",
+      "password": "123"
     }
   ],
   "shoppingLists": [
     {
-      "id": "0e90",
-      "name": "macaron"
+      "id": "de9e",
+      "name": "sugar beans"
     },
     {
-      "id": "fb26",
-      "name": "cake"
+      "id": "4098",
+      "name": "cheese bun"
     }
   ]
 }

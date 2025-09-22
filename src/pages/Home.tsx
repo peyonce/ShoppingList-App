@@ -20,33 +20,47 @@ const HomePage: React.FC = () => {
   const [newItem, setNewItem] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editValue, setEditValue] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-
+  // Fetch shopping list items when the component mounts
   useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => dispatch(setItems(data)))
-      .catch((err) => console.error("Error fetching items:", err));
+      .catch(() => setErrorMessage("Error fetching items."));
   }, [dispatch]);
 
+  const handleFetchError = (err: any) => {
+    setErrorMessage("An error occurred. Please try again.");
+    console.error(err);
+  };
 
+  // Add a new item to the shopping list
   const handleAdd = () => {
     if (!newItem.trim()) return;
 
     const item = { name: newItem };
+    
+    // Check if item already exists in the list
+    if (items.some((i) => i.name.toLowerCase() === newItem.toLowerCase())) {
+      setErrorMessage("Item already exists.");
+      return;
+    }
+
     fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(item),
     })
       .then((res) => res.json())
-      .then((data: ShoppingItem) => dispatch(addItem(data)))
-      .catch((err) => console.error(err));
-
-    setNewItem("");
+      .then((data: ShoppingItem) => {
+        dispatch(addItem(data));
+        setNewItem("");
+      })
+      .catch(handleFetchError);
   };
 
-
+  // Update an existing item
   const handleUpdate = (id: number) => {
     if (!editValue.trim()) return;
 
@@ -55,26 +69,25 @@ const HomePage: React.FC = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: editValue }),
     })
-      .then((res) => res.json())
       .then(() => {
         dispatch(updateItem({ id, name: editValue }));
         setEditingId(null);
         setEditValue("");
       })
-      .catch((err) => console.error(err));
+      .catch(handleFetchError);
   };
 
-
+  // Delete an item from the shopping list
   const handleDelete = (id: number) => {
     fetch(`${API_URL}/${id}`, { method: "DELETE" })
       .then(() => dispatch(deleteItem(id)))
-      .catch((err) => console.error(err));
+      .catch(handleFetchError);
   };
 
-
+  // Navigate to the profile page
   const goToProfile = () => navigate("/profile");
 
-
+  // Handle user logout
   const handleLogout = () => {
     dispatch(logout());
     navigate("/login");
@@ -86,14 +99,17 @@ const HomePage: React.FC = () => {
         <h1>My Shopping Lists</h1>
         <p>Manage, track, and organize your shopping in one place.</p>
         <div className={styles.navButtons}>
-          <button className={styles.btn} onClick={goToProfile}>
+          <button className={styles.btn} onClick={goToProfile} aria-label="Go to profile">
             Profile
           </button>
-          <button className={styles.btn} onClick={handleLogout}>
+          <button className={styles.btn} onClick={handleLogout} aria-label="Logout">
             Logout
           </button>
         </div>
       </header>
+
+      {/* Display error message if there is any */}
+      {errorMessage && <p className={styles.error}>{errorMessage}</p>}
 
       <div className={styles.inputGroup}>
         <input
@@ -101,8 +117,9 @@ const HomePage: React.FC = () => {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
           placeholder="Add new item..."
+          aria-label="Enter item name"
         />
-        <button onClick={handleAdd} className={styles.btn}>
+        <button onClick={handleAdd} className={styles.btn} aria-label="Add item">
           Add
         </button>
       </div>
@@ -116,11 +133,12 @@ const HomePage: React.FC = () => {
                   type="text"
                   value={editValue}
                   onChange={(e) => setEditValue(e.target.value)}
+                  aria-label="Edit item name"
                 />
-                <button onClick={() => handleUpdate(item.id)} className={styles.btn}>
+                <button onClick={() => handleUpdate(item.id)} className={styles.btn} aria-label="Save item">
                   Save
                 </button>
-                <button onClick={() => setEditingId(null)} className={styles.btn}>
+                <button onClick={() => setEditingId(null)} className={styles.btn} aria-label="Cancel edit">
                   Cancel
                 </button>
               </>
@@ -133,11 +151,12 @@ const HomePage: React.FC = () => {
                     setEditValue(item.name);
                   }}
                   className={styles.btn}
+                  aria-label="Edit item"
                 >
-                  update
+                  Update
                 </button>
-                <button onClick={() => handleDelete(item.id)} className={styles.btn}>
-                  delete
+                <button onClick={() => handleDelete(item.id)} className={styles.btn} aria-label="Delete item">
+                  Delete
                 </button>
               </>
             )}
